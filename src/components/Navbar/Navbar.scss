@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+nav {
+  background-color: $primaryColor !important;
+  box-shadow: 0px 2px 5px #214f054d;
+  border-bottom: .5px solid $secondaryColor;
+
+  padding: 15px 20px 18px 20px !important;
+}
+
+.Navbar__logo {
+  width: 50px;
+
+  margin-right: 10px;
+}
+
+.navbar-brand {
+  font-size: 2.2em;
+  color: $secondaryColor !important;
+}
+
+.Navbar__signOut {
+  font-size: 1.3em;
+
+  padding-bottom: 8px;
+}

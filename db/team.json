@@ -1,0 +1,20 @@
+{
+  "player1" : {
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/baggy-greens.appspot.com/o/images%2Fdavid-warner.jpg?alt=media&token=0a97d63c-7485-49c5-9294-d22ccb902811",
+    "name": "David Warner",
+    "position": "Batsman",
+    "uid": "MCp5uCQcpxR5uUL0dyEhqIv5TIt1"
+  },
+  "player2" : {
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/baggy-greens.appspot.com/o/images%2Fsteve-smith.jpg?alt=media&token=53e2dbbd-14d6-4aff-9c1e-7e1dc6761f26",
+    "name": "Steve Smith",
+    "position": "Captain",
+    "uid": "MCp5uCQcpxR5uUL0dyEhqIv5TIt1"
+  },
+  "player3" : {
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/baggy-greens.appspot.com/o/images%2Fvirat-kholi.jpg?alt=media&token=cb3d33b6-aba0-4b5c-b26d-5b38346f7761",
+    "name": "Virat Kholi",
+    "position": "Captain",
+    "uid": "MCp5uCQcpxR5uUL0dyEhqIv5TIt1"
+  }
+}
