@@ -4,5 +4,17 @@
 @import './variables';
 
 body {
-  background-color: $favColor;
+  background-color: #fff;
+  font-family: $font;
+
+  .btn {
+    background-color: $buttonColor;
+    border-color: $buttonColor;
+    color: #fff;
+  }
+
+  .btn:hover {
+    background-color: $buttonHover;
+    border-color: $buttonHover;
+  }
 }
