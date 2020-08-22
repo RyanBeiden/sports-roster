@@ -11,4 +11,6 @@ const getPlayersById = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPlayersById };
+const firePlayer = (playerId) => axios.delete(`${baseUrl}/team/${playerId}.json`);
+
+export default { getPlayersById, firePlayer };

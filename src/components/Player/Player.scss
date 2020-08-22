@@ -11,6 +11,10 @@
     border-radius: 0;
     border-bottom: 3px solid $secondaryColor;
   }
+
+  .card-body { 
+    padding-bottom: 0;
+  }
 }
 
 .separator {
@@ -20,10 +24,21 @@
 }
 
 .Player--box {
-  background-color: $secondaryColor;
-  color: #fff;
+  border: 2px solid $secondaryColor;
+  color: $secondaryColor;
   border-radius: .2em;
 
   padding: 0px 10px 2px 10px;
   margin-left: 5px;
+}
+
+.Player__fire {
+  border-radius: 0;
+  font-size: 1.3em;
+
+  margin: 20px 0px 0px 0px;
+}
+
+.Player__fire:hover {
+  color: #fff;
 }
