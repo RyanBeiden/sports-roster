@@ -1,8 +1,28 @@
-.TeamContainer__holder {
+@import '../../styles/variables';
+
+.TeamContainer__teamCards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: flex-start;
 
   margin-top: 35px;
+}
+
+.TeamContainer__holder {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto;
+}
+
+.TeamContainer__createButton {
+  justify-self: center;
+  margin-top: 60px;
+
+  .btn {
+    background-color: $secondaryColor !important;
+    border-color: $secondaryColor !important;
+  
+    padding: .5rem 5rem !important;
+  }
 }
