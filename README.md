@@ -8,20 +8,14 @@ PREVIEW GIF/SCREENSHOTS
 
 ## Deployed Project
 
-LINK TO DEPLOYED PROJECT
+[baggy-greens.web.app](https://baggy-greens.web.app/)
 
 ## Clone the Repository
-- Clone it 👉🏼 `$ git clone`
+- Clone it 👉🏼 `$ git clone https://github.com/RyanBeiden/sports-roster.git`
 
 - Install the dependencies 👉🏼 `$ npm install`
 
 - Run `$ npm start`
 
 ## Technologies Used
-[![TECHNAMEGOESHERE](https://img.shields.io/badge/-TECHNAMEGOESHERE-2c9fcc?style=flat-square)](#)
-
-#### Backlog/Roadmap
-
-IF IT IS A WIP:
-
-[![WIP](https://img.shields.io/badge/-Work%20In%20Progress-orange?style=flat-square)](#)
+[![React](https://img.shields.io/badge/-React-2c9fcc?style=flat-square)](#) [![SASS](https://img.shields.io/badge/-SASS-2c9fcc?style=flat-square)](#) [![Axios](https://img.shields.io/badge/-Axios-2c9fcc?style=flat-square)](#) [![Firebase](https://img.shields.io/badge/-Firebase-2c9fcc?style=flat-square)](#)
