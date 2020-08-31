@@ -7,12 +7,41 @@ import './PlayerForm.scss';
 class PlayerForm extends React.Component {
   static propTypes = {
     createPlayer: PropTypes.func.isRequired,
+    playerCurrentlyEditing: PropTypes.object.isRequired,
+    updatePlayer: PropTypes.func.isRequired,
   }
 
   state = {
     imageUrl: '',
     name: '',
     position: '',
+    isEditing: false,
+  }
+
+  componentDidMount() {
+    const { playerCurrentlyEditing } = this.props;
+    if (playerCurrentlyEditing.name) {
+      this.setState({
+        imageUrl: playerCurrentlyEditing.imageUrl,
+        name: playerCurrentlyEditing.name,
+        position: playerCurrentlyEditing.position,
+        isEditing: true,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const prevPlayer = prevProps.playerCurrentlyEditing;
+    const incomingPlayer = this.props.playerCurrentlyEditing;
+
+    if (prevPlayer.name !== incomingPlayer.name) {
+      this.setState({
+        name: incomingPlayer.name || '',
+        imageUrl: incomingPlayer.imageUrl || '',
+        position: incomingPlayer.position || '',
+        isEditing: !!incomingPlayer.name,
+      });
+    }
   }
 
   nameChangeEvent = (e) => {
@@ -45,7 +74,29 @@ class PlayerForm extends React.Component {
     createPlayer(newPlayer);
   }
 
+  editPlayerEvent = (e) => {
+    e.preventDefault();
+    const { name, imageUrl, position } = this.state;
+    const { updatePlayer, playerCurrentlyEditing } = this.props;
+
+    const playerWithChanges = {
+      name,
+      imageUrl,
+      position,
+      uid: authData.getUid(),
+    };
+
+    updatePlayer(playerCurrentlyEditing.id, playerWithChanges);
+  }
+
   render() {
+    const {
+      name,
+      position,
+      imageUrl,
+      isEditing,
+    } = this.state;
+
     return (
       <form className="PlayerForm__form">
         <div className="form-group">
@@ -55,6 +106,7 @@ class PlayerForm extends React.Component {
           className="form-control"
           id="newPlayerName"
           placeholder="Aaron Finch"
+          value={name}
           onChange={this.nameChangeEvent} />
         </div>
         <div className="form-group">
@@ -64,11 +116,12 @@ class PlayerForm extends React.Component {
           className="form-control"
           id="newImageUrl"
           placeholder="https://cricket.com"
+          value={imageUrl}
           onChange={this.imageChangeEvent} />
         </div>
         <div className="form-group">
           <label htmlFor="newPosition">Position</label>
-          <select className="form-control" id="newPosition" onChange={this.positionChangeEvent}>
+          <select className="form-control" id="newPosition" onChange={this.positionChangeEvent} value={position}>
             <option>Wicket Keeper</option>
             <option>Batsman</option>
             <option>Captain</option>
@@ -76,7 +129,10 @@ class PlayerForm extends React.Component {
             <option>Bowler</option>
           </select>
         </div>
-        <button className="btn btn-success" onClick={this.addPlayerEvent}>Add Player</button>
+        { isEditing
+          ? <button className="btn btn-success" onClick={this.editPlayerEvent}>Update Player</button>
+          : <button className="btn btn-success" onClick={this.addPlayerEvent}>Add Player</button>
+        }
       </form>
     );
   }

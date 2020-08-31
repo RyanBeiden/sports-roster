@@ -10,12 +10,19 @@ class Player extends React.Component {
   static = {
     team: teamShape.teamShape,
     firePlayer: PropTypes.func.isRequired,
+    editAPlayer: PropTypes.func.isRequired,
   }
 
   firePlayerEvent = (e) => {
     e.preventDefault();
     const { firePlayer, player } = this.props;
     firePlayer(player.id);
+  }
+
+  editPlayerEvent = (e) => {
+    e.preventDefault();
+    const { editAPlayer, player } = this.props;
+    editAPlayer(player);
   }
 
   render() {
@@ -30,7 +37,10 @@ class Player extends React.Component {
               <div className="separator"></div>
               <h5>Position: <span className="Player--box">{player.position}</span></h5>
             </div>
-            <button className="btn Player__fire" onClick={this.firePlayerEvent}>Fire Player</button>
+            <div className="Player__button-container">
+              <button className="btn Player__fire" onClick={this.firePlayerEvent}>Fire Player</button>
+              <button className="btn Player__edit" onClick={this.editPlayerEvent}>Edit</button>
+            </div>
           </div>
         : null
     );
