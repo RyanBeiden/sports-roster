@@ -4,7 +4,7 @@ This web app utilizes the CRUD method with Firebase/Axios all built on React. Th
 
 ## Preview
 
-PREVIEW GIF/SCREENSHOTS
+![Baggy Greens Demo](./gifs/baggy-greens-demo.gif)
 
 ## Deployed Project
 
