@@ -12,6 +12,7 @@ class TeamContainer extends React.Component {
   state = {
     team: [],
     openForm: false,
+    editPlayer: {},
   }
 
   teamRefresh = () => {
@@ -41,18 +42,44 @@ class TeamContainer extends React.Component {
       .catch((err) => console.error('Adding a new player did not work -> ', err));
   }
 
-  render() {
-    const { team, openForm } = this.state;
+  editAPlayer = (playerToEdit) => {
+    this.setState({ openForm: true, editPlayer: playerToEdit });
+  }
 
-    const teamCards = team.map((player) => <Player key={player.id} player={player} firePlayer={this.firePlayer}/>);
+  updatePlayer = (playerId, editedPlayer) => {
+    teamData.editPlayer(playerId, editedPlayer)
+      .then(() => {
+        this.teamRefresh();
+        this.setState({ openForm: false });
+      })
+      .catch((err) => console.error('Updating the player did not work -> ', err));
+  }
+
+  render() {
+    const { team, openForm, editPlayer } = this.state;
+
+    const teamCards = team.map((player) => <Player
+      key={player.id}
+      player={player}
+      firePlayer={this.firePlayer}
+      editAPlayer={this.editAPlayer}
+    />);
 
     return (
       <div className="TeamContainer__holder">
         <div className="TeamContainer__createButton">
-          <button className="btn btn-success" onClick={() => { this.setState({ openForm: !openForm }); }}>
-            {openForm ? <i className="fas fa-times"></i> : <i className="fas fa-plus"></i>}
-          </button>
-          {openForm ? <PlayerForm createPlayer={this.createPlayer}/> : ''}
+          {openForm
+            ? <button className="btn btn-success" onClick={() => { this.setState({ openForm: !openForm }); }}>
+              <i className="fas fa-times"></i></button>
+            : <button className="btn btn-success" onClick={() => { this.setState({ openForm: !openForm, editPlayer: {} }); }}>
+              <i className="fas fa-plus"></i></button>
+          }
+          {openForm
+            ? <PlayerForm
+              createPlayer={this.createPlayer}
+              playerCurrentlyEditing={editPlayer}
+              updatePlayer={this.updatePlayer}/>
+            : ''}
         </div>
         <div className="TeamContainer__teamCards">
           {teamCards}

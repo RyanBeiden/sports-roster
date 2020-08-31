@@ -34,11 +34,35 @@
 
 .Player__fire {
   border-radius: 0;
+  border-top: 2px solid $secondaryColor !important;
   font-size: 1.3em;
+  width: 150px;
 
   margin: 20px 0px 0px 0px;
 }
 
 .Player__fire:hover {
   color: #fff;
+}
+
+.Player__edit {
+  border-radius: 0;
+  border: none;
+  border-top: 2px solid $secondaryColor !important;
+  font-size: 1.3em;
+  width: 150px;
+
+  background-color: $primaryColor !important;
+  color: $secondaryColor !important;
+
+  margin: 20px 0px 0px 0px;
+}
+
+.Player__edit:hover {
+  background-color: #d2bf9e !important;
+}
+
+.Player__button-container {
+  display: flex;
+  justify-content: center;
 }
